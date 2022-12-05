@@ -12,6 +12,7 @@ interface props {
 const Login: React.FC<props> = (props) => {
   const setTheme = useSetRecoilState(themesSetting);
   const setLoading = useSetRecoilState(isLoading);
+  
   useEffect(() => {
     setTheme({
       header: false,
@@ -31,6 +32,7 @@ const Login: React.FC<props> = (props) => {
 
   const onSubmit = (values: any) => {
 
+    console.log(values)
     setLoading({ content: true, button : true });
     if (values.user_id === "admin") {
       setTimeout(() => {
@@ -47,7 +49,7 @@ const Login: React.FC<props> = (props) => {
   const { handleSubmit } = useForm({
     onSubmit,
     initialValues: {
-      user_id: "",
+      user_id1: "",
       password: ""
     }
   });
